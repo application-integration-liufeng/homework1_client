@@ -2,4 +2,88 @@
 
 <div id="daily_graph" style="width: 100%;height:400px;"></div>
 
+<br>
+
+<h4 class="text-center">改名历史</h4>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        更改名称
+                    </th>
+                    <th>
+                        更改原因
+                    </th>
+                    <th>
+                        开始日期
+                    </th>
+                    <th>
+                        结束日期
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in namechanges">
+                    <td>
+                        {{item[1]}}
+                    </td>
+                    <td>
+                        {{item[5]}}
+                    </td>
+                    <td>
+                        {{item[2]}}
+                    </td>
+                    <td>
+                        {{item[3]}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<h4 class="text-center">停复牌信息</h4>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        停牌原因
+                    </th>
+                    <th>
+                        停牌日期
+                    </th>
+                    <th>
+                        复牌日期
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in suspends">
+                    <td>
+                        {{item[3]}}
+                    </td>
+                    <td>
+                        {{item[1]}}
+                    </td>
+                    <td>
+                        {{item[2]}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <link rel="stylesheet" href="view/tushareStockDetail/tushareStockDetail.css">

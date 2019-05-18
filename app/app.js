@@ -41,6 +41,16 @@ angular.module('myApp', [
                         }]
                     }
                 })
+        .state('xueqiuStockList', {
+                    url: '/xueqiuStockList',
+                    templateUrl: 'view/xueqiuStockList/xueqiuStockList.html',
+                    controller: 'xueqiuStockListCtrl',
+                    resolve: {
+                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load('view/xueqiuStockList/xueqiuStockList.js');
+                        }]
+                    }
+                })
         .state('tushareStockDetail', {
                     params: {symbol: null},
                     url: '/tushareStockDetail/?:symbol',

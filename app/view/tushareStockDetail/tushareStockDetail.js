@@ -17,6 +17,8 @@ angular.module('myApp.tushareStockDetail', [])
     }).then(function (res) {
         console.log(res);
 
+        $scope.namechanges = res.data.namechange.items;
+        $scope.suspends = res.data.suspend.items;
         /*
 0: "ts_code"
 1: "trade_date"

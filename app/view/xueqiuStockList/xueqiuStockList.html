@@ -1,0 +1,68 @@
+<br>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        股票代码
+                    </th>
+                    <th>
+                        CHG
+                    </th>
+                    <th>
+                        百分比
+                    </th>
+                    <th>
+                        当前股价
+                    </th>
+                    <th>
+                        名称
+                    </th>
+                    <th>
+                        Market Capital
+                    </th>
+                    <!--<th>-->
+                        <!--操作-->
+                    <!--</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in stocks">
+                    <td>
+                        {{item.symbol}}
+                    </td>
+                    <td>
+                        {{item.chg}}
+                    </td>
+                    <td>
+                        {{item.percent}}
+                    </td>
+                    <td>
+                        {{item.current}}
+                    </td>
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <td>
+                        {{item.market_capital}}
+                    </td>
+                    <!--<td>-->
+                        <!--<button ui-sref="tushareStockDetail({symbol: item.symbol})" class="btn btn-primary">查看</button>-->
+                    <!--</td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--<br>-->
+        <!--<button ng-click="prePage()" ng-show="offset > 1" class="btn btn-primary">上一页</button>-->
+        <!--<button ng-click="nextPage()" class="btn btn-primary">下一页</button>-->
+    </div>
+</div>
+
+<br>
+
+<link rel="stylesheet" href="view/xueqiuStockList/xueqiuStockList.css">
