@@ -11,8 +11,7 @@ angular.module('myApp', [
     'ngRoute',
     'ui.router',
     'ngCookies',
-    'oc.lazyLoad',
-    'angularFileUpload'
+    'oc.lazyLoad'
 ])
 
 .config(function($stateProvider, $urlRouterProvider){
