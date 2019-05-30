@@ -66,13 +66,13 @@
                         昨日
                     </th>
                     <th>
-                        CHG
+                        涨跌额
                     </th>
                     <th>
-                        百分比
+                        涨跌幅
                     </th>
                     <th>
-                        Market Capital
+                        市值
                     </th>
                     <th>
                         操作
@@ -103,13 +103,13 @@
                         {{item.chg}}
                     </td>
                     <td>
-                        {{item.percent}}
+                        {{item.percent}}%
                     </td>
                     <td>
                         {{item.market_capital}}
                     </td>
                     <td>
-                        <button ui-sref="tushareStockDetail({symbol: item.code})" class="btn btn-primary">查看</button>
+                        <button ui-sref="stockDetail({symbol: item.code})" class="btn btn-primary">查看</button>
                     </td>
                 </tr>
                 </tbody>
@@ -117,8 +117,8 @@
         </div>
 
         <br>
-        <button ng-click="prePage()" ng-show="offset > 1" class="btn btn-primary">上一页</button>
-        <button ng-click="nextPage()" class="btn btn-primary">下一页</button>
+        <button ng-click="prePage()" ng-disabled="offset <= 1" class="btn btn-primary">上一页</button>
+        <button ng-click="nextPage()" ng-disabled="end == true" class="btn btn-primary">下一页</button>
     </div>
 </div>
 

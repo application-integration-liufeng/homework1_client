@@ -14,61 +14,83 @@ angular.module('myApp', [
     'oc.lazyLoad'
 ])
 
-.config(function($stateProvider, $urlRouterProvider){
-    //默认路由路径
-    $urlRouterProvider.when('', '/home');
+    .config(function ($stateProvider, $urlRouterProvider) {
+        //默认路由路径
+        $urlRouterProvider.when('', '/home');
 
-    //路由表
-    $stateProvider
-        .state('home', {
-                    url: '/home',
-                    templateUrl: 'view/home/home.html',
-                    controller: 'homeCtrl',
-                    resolve: {
-                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('view/home/home.js');
-                        }]
-                    }
-                })
-        .state('tushareStockList', {
-                    url: '/tushareStockList',
-                    templateUrl: 'view/tushareStockList/tushareStockList.html',
-                    controller: 'tushareStockListCtrl',
-                    resolve: {
-                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('view/tushareStockList/tushareStockList.js');
-                        }]
-                    }
-                })
-        .state('xueqiuStockList', {
-                    url: '/xueqiuStockList',
-                    templateUrl: 'view/xueqiuStockList/xueqiuStockList.html',
-                    controller: 'xueqiuStockListCtrl',
-                    resolve: {
-                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('view/xueqiuStockList/xueqiuStockList.js');
-                        }]
-                    }
-                })
-        .state('tushareStockDetail', {
-                    params: {symbol: null},
-                    url: '/tushareStockDetail/?:symbol',
-                    templateUrl: 'view/tushareStockDetail/tushareStockDetail.html',
-                    controller: 'tushareStockDetailCtrl',
-                    resolve: {
-                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('view/tushareStockDetail/tushareStockDetail.js');
-                        }]
-                    }
-                })
-})
+        //路由表
+        $stateProvider
+            .state('home', {
+                url: '/home',
+                templateUrl: 'view/home/home.html',
+                controller: 'homeCtrl',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('view/home/home.js');
+                    }]
+                }
+            })
+            .state('tushareStockList', {
+                url: '/tushareStockList',
+                templateUrl: 'view/tushareStockList/tushareStockList.html',
+                controller: 'tushareStockListCtrl',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('view/tushareStockList/tushareStockList.js');
+                    }]
+                }
+            })
+            .state('xueqiuStockList', {
+                url: '/xueqiuStockList',
+                templateUrl: 'view/xueqiuStockList/xueqiuStockList.html',
+                controller: 'xueqiuStockListCtrl',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('view/xueqiuStockList/xueqiuStockList.js');
+                    }]
+                }
+            })
+            .state('tushareStockDetail', {
+                params: { symbol: null },
+                url: '/tushareStockDetail/?:symbol',
+                templateUrl: 'view/tushareStockDetail/tushareStockDetail.html',
+                controller: 'tushareStockDetailCtrl',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('view/tushareStockDetail/tushareStockDetail.js');
+                    }]
+                }
+            })
+            .state('xueqiuStockDetail', {
+                params: { symbol: null },
+                url: '/xueqiuStockDetail/?:symbol',
+                templateUrl: 'view/xueqiuStockDetail/xueqiuStockDetail.html',
+                controller: 'xueqiuStockDetailCtrl',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('view/xueqiuStockDetail/xueqiuStockDetail.js');
+                    }]
+                }
+            })
+            .state('stockDetail', {
+                params: { symbol: null },
+                url: '/stockDetail/?:symbol',
+                templateUrl: 'view/stockDetail/stockDetail.html',
+                controller: 'stockDetailCtrl',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('view/stockDetail/stockDetail.js');
+                    }]
+                }
+            })
+    })
 
-    .controller('mainCtrl', function($scope, $http, $state, $window, $cookies){
+    .controller('mainCtrl', function ($scope, $http, $state, $window, $cookies) {
 
     });
 
 
-function getBlob(url) {
+function getBlob (url) {
     return new Promise(resolve => {
         const xhr = new XMLHttpRequest();
 
@@ -89,7 +111,7 @@ function getBlob(url) {
  * @param  {Blob} blob
  * @param  {String} filename 想要保存的文件名称
  */
-function saveAs(blob, filename) {
+function saveAs (blob, filename) {
     if (window.navigator.msSaveOrOpenBlob) {
         navigator.msSaveBlob(blob, filename);
     } else {
@@ -115,7 +137,7 @@ function saveAs(blob, filename) {
  * @param  {String} url 目标文件地址
  * @param  {String} filename 想要保存的文件名称
  */
-function download(url, filename) {
+function download (url, filename) {
     getBlob(url).then(blob => {
         saveAs(blob, filename);
     });

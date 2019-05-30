@@ -1,0 +1,26 @@
+<br>
+
+<h4 class="text-center">评论({{comments.length}})</h4>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="item in comments">
+                    <td class="col-md-2 column">
+                        {{item.name}}
+                    </td>
+                    <td class="col-md-2 column">
+                        {{item.time}}
+                    </td>
+                    <td ng-bind-html="item.content|to_trusted">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="view/xueqiuStockDetail/xueqiuStockDetail.css">
